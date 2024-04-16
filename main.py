@@ -38,12 +38,11 @@ async def incoming(client, message):
                 url=f'https://{url}'
             else:
                 url=f"https://duckduckgo.com?q={message.text.lower().replace(' ','%20')}"
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Results', web_app=WebAppInfo(url=url))]])
-                await client.send_message(chat_id=chat_id, text='DuckDuckGo search!', reply_markup=reply_markup)
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Search..', web_app=WebAppInfo(url=url))]])
+                await client.send_message(chat_id=chat_id, text='DuckDuckGo', reply_markup=reply_markup)
                 break
-            print(url)
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Click me!', web_app=WebAppInfo(url=url))]])
-            await client.send_message(chat_id=chat_id, text='Click button:', reply_markup=reply_markup)
+            await client.send_message(chat_id=chat_id, text='______________', reply_markup=reply_markup)
 
             
 if __name__=='__main__':
