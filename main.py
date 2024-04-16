@@ -45,7 +45,6 @@ async def incoming(client, message):
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Click me!', url=WebAppInfo(url=url))]])
             await client.send_message(chat_id=chat_id, text='Click button:', reply_markup=reply_markup)
 
-        else:
             
 if __name__=='__main__':
     app.run()
