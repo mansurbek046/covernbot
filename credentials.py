@@ -1,0 +1,6 @@
+api_id='20619129'
+api_hash='b4edb93608b3fc73cfa412ce538d4882'
+
+bot_token='7198079288:AAFcYM6pZT_JydwLOvy1nLgL8og6tlyTEsI'
+
+telegraph_access_token='f7d397a78a3152e5ec909d25e7cc0dc7ceec447b9eff039bd78caabb6759'
