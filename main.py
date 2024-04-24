@@ -20,9 +20,14 @@ async def welcome(client, message):
   chat_id=message.chat.id
   await client.send_message(chat_id=chat_id, text="Welcome! Send me message whichever you want..")
   for word in text:  
-    user = await app.get_users(word)
-    if user:
+    try:
+      user = await app.get_users(word)
+      if user:
+        await client.send_message(chat_id=chat_id, text=word)
+    except pyrogram.errors.exceptions.bad_request_400.UsernameNotOccupied:
       await client.send_message(chat_id=chat_id, text=word)
+    except:
+      print()
 
 
 @app.on_message()
