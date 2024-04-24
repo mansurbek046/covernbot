@@ -30,7 +30,7 @@ async def welcome(client, message):
       await client.send_message(chat_id=chat_id, text=word)
     except Exception as e:
       print(e)
-    asyncio.sleep(2000)
+    await asyncio.sleep(2)
     
 
 
