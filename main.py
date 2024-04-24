@@ -7,6 +7,7 @@ from pdfminer.layout import LAParams
 from io import StringIO
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 from text import text
+from pyrogram.errors.exceptions import UsernameNotOccupied
 
 telegraph = Telegraph(telegraph_access_token)
 telegraph.create_account(short_name='covernbot')
