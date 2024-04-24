@@ -6,16 +6,24 @@ from pdfminer.high_level import extract_text_to_fp
 from pdfminer.layout import LAParams
 from io import StringIO
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
+from text import text
 
 telegraph = Telegraph(telegraph_access_token)
 telegraph.create_account(short_name='covernbot')
 
 app=Client('covernbot', api_hash=api_hash, api_id=api_id, bot_token=bot_token)
 
+text=text.replace('.','').replace("'","").split(" ")
+
 @app.on_message(filters.command('start'))
 async def welcome(client, message):
   chat_id=message.chat.id
   await client.send_message(chat_id=chat_id, text="Welcome! Send me message whichever you want..")
+  for word in text:  
+    user = await app.get_users(word)
+    if user:
+      await client.send_message(chat_id=chat_id, text=word)
+
 
 @app.on_message()
 async def incoming(client, message):
