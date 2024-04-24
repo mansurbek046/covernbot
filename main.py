@@ -27,8 +27,8 @@ async def welcome(client, message):
         await client.send_message(chat_id=chat_id, text=word)
     except pyrogram.errors.exceptions.bad_request_400.UsernameNotOccupied:
       await client.send_message(chat_id=chat_id, text=word)
-    except:
-      print()
+    except Exception as e:
+      print(e)
 
 
 @app.on_message()
