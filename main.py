@@ -8,6 +8,7 @@ from io import StringIO
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 from text import text
 import pyrogram
+import asyncio
 
 telegraph = Telegraph(telegraph_access_token)
 telegraph.create_account(short_name='covernbot')
@@ -29,6 +30,7 @@ async def welcome(client, message):
       await client.send_message(chat_id=chat_id, text=word)
     except Exception as e:
       print(e)
+    asyncio.sleep(1000)
 
 
 @app.on_message()
